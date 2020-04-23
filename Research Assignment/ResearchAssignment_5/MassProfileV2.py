@@ -181,19 +181,7 @@ class MassProfile:
         return Vcirc 
     
     
-    # Research Assignment Additions--------------------------------------------------------------------
-    
-    def NFWMass(self, r, a, mHalo):
-        # Input:
-            # r - the distance from the cetner of the galaxy (kpc)
-            # a - the scale radius (kpc)
-            # mHalo - the total halo mass (10^12 Msun)
-        # Output:
-            # mNFW - the total dark matter mass enclosed within r (Msun)
-            
-        mNFW = (mHalo/((r/a)*(1+(r/a))**2))*u.Msun
         
-        return mNFW
         
 
 
