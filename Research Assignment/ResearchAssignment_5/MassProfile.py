@@ -194,7 +194,41 @@ class MassProfile:
         mNFW = (mHalo/((r/a)*(1+(r/a))**2))*u.Msun
         
         return mNFW
+
+    def NFWDen(self, r, a):
+        # Input:
+            # r - the distance from the cetner of the galaxy (kpc)
+            # a - the scale radius (kpc)
+            # mHalo - the total halo mass (10^12 Msun)
+        # Output:
+            # rhoNFW - the total dark matter mass enclosed within r (Msun)
+            
+        #delta0 = (200/3) * (c**3)/(np.log(1+c) - c/(1+c)) * rC**3
+        #rhoNFW = rho_c * delta0 * 4 * np.pi
         
+        #return rhoNFW
 
-
-
+    def HernquistDen(self, R, scale, Mhalo):
+        # Determine the mass enclosed using Hernquist 1990 Mass profile 
+        # Input:   R   Radius  
+        #         scale   Scale Length  
+        #         Mhalo  Total Halo Mass (Msun)
+        # Returns: Density in units Msun/kpc^3
+        
+#         c = 1e-9
+#         dr = c * R
+#         rho = np.zeros[1/c]
+#         r = np.arange[0, R, dr]
+#         for i in range(1/c):
+#             M = self.HernquistMass(r[i], scale, Mhalo)
+#             V = 4/3 * np.pi * (r[i+1]**3 - r[i]**3)
+#             rho[i] = M/V
+#         return rho
+    
+        dr = len(R)
+        rho = np.zeros(dr)
+        for i in range(1/c):
+            M = self.HernquistMass(R[i], scale, Mhalo)
+            V = 4/3 * np.pi * (R[i+1]**3 - R[i]**3)
+            rho[i] = M/V
+        return rho
